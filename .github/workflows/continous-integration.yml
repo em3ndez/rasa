@@ -104,13 +104,13 @@ jobs:
 
     - name: Lint Code 🎎
       run: |
-      # If it's not a pull request, we lint the docstrings against the current branch
-      # which effectively skips linting the docstrings.
-      if [[ -z DOCSTRING_DIFF_BRANCH ]]; then
-        DOCSTRING_DIFF_BRANCH=${{ github.ref }}
-      fi
+        # If it's not a pull request, we lint the docstrings against the current branch
+        # which effectively skips linting the docstrings.
+        if [[ -z DOCSTRING_DIFF_BRANCH ]]; then
+          DOCSTRING_DIFF_BRANCH=${{ github.ref }}
+        fi
 
-      make lint branch=DOCSTRING_DIFF_BRANCH
+        make lint branch=$DOCSTRING_DIFF_BRANCH
 
     - name: Check Types 📚
       run: make types
