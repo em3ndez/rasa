@@ -422,7 +422,7 @@ class Agent:
                 model_path = get_model(str(model_path))
         except ModelNotFound as e:
             raise ModelNotFound(
-                f"You are trying to load a model from '{os.path.abspath(model_path)}', "
+                f"You are trying to load a model from '{model_path}', "
                 f"which is not possible. \n"
                 f"The model path should be a 'tar.gz' file or a directory "
                 f"containing the various model files in the sub-directories "
