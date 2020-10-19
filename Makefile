@@ -61,14 +61,14 @@ formatter:
 	poetry run black rasa tests
 
 lint:
-    # Ignore docstring errors when running on the entire project
+     # Ignore docstring errors when running on the entire project
 	poetry run flake8 rasa tests --extend-ignore D
 	poetry run black --check rasa tests
 
 branch ?= master
 lint-docs:
-    # Lint docstrings only against the the diff to avoid too many errors.
-    # Check only production code. Ignore other flake errors which are captured by `lint`
+     # Lint docstrings only against the the diff to avoid too many errors.
+     # Check only production code. Ignore other flake errors which are captured by `lint`
 	git diff $(branch) -- rasa | poetry run flake8 --select D --diff
 
 types:
