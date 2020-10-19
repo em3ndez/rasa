@@ -64,9 +64,10 @@ lint:
      # Ignore docstring errors when running on the entire project
 	poetry run flake8 rasa tests --extend-ignore D
 	poetry run black --check rasa tests
+	make lint-docstrings
 
-branch ?= master
-lint-docs:
+branch ?= master # Compare against `master` if no branch was provided
+lint-docstrings:
      # Lint docstrings only against the the diff to avoid too many errors.
      # Check only production code. Ignore other flake errors which are captured by `lint`
 	git diff $(branch) -- rasa | poetry run flake8 --select D --diff
