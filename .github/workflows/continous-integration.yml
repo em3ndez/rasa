@@ -104,12 +104,9 @@ jobs:
 
     - name: Lint Code 🎎
       run: |
-        # If it's not a pull request, we lint the docstrings against the current branch
-        # which effectively skips linting the docstrings.
-        if [[ -z DOCSTRING_DIFF_BRANCH ]]; then
-          DOCSTRING_DIFF_BRANCH=${{ github.ref }}
-        fi
-
+        # If it's not a pull request, $DOCSTRING_DIFF_BRANCH is unset.
+        # This will result in an empty diff, which effictively means that
+        # make lint-docstrings will be skipped for other events than `pull_request`
         make lint branch=$DOCSTRING_DIFF_BRANCH
 
     - name: Check Types 📚

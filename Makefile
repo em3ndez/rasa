@@ -14,7 +14,7 @@ help:
 	@echo "        Apply black formatting to code."
 	@echo "    lint"
 	@echo "        Lint code with flake8, and check if black formatter should be applied."
-	@echo "    lint-docs"
+	@echo "    lint-docstrings"
 	@echo "        Check docstring conventions in changed files."
 	@echo "    types"
 	@echo "        Check for type errors using mypy."
